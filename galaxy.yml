@@ -1,5 +1,5 @@
 ---
-- hosts: gal_onco_ubu
+- hosts: prod_onco_ubu
   become: true
         
   handlers:
@@ -24,7 +24,10 @@
      become: true
      become_user: root
    - usegalaxy_eu.galaxy_systemd
-  # - ubuntu.nginx
+   # - ubuntu.nginx
+   # - role: oncotools.certbot
+   #   become: true
+   #   become_user: root
    
   tasks:
     - name: Recursively change ownership of data folder

@@ -1,15 +1,8 @@
-[docker]
-158.39.75.196
-
-[ork_ubun_node]
-158.39.48.128
-
-[gal_dock_ubu]
-158.37.63.110
-
 [gal_onco_ubu]
-#158.37.63.106
 158.39.75.195
+
+[prod_onco_ubu]
+158.37.63.164
 
 [gal_onco_ubu:vars]
 ansible_ssh_user="ubuntu"
@@ -17,19 +10,7 @@ ansible_ssh_private_key_file="~/.ssh/ork-replika.key"
 become=yes
 become_user=root
 
-[gal_dock_ubu:vars]
-ansible_ssh_user="ubuntu"
-ansible_ssh_private_key_file="~/.ssh/ork-replika.key"
-become=yes
-become_user=root
-
-[ork_ubun_node:vars]
-ansible_ssh_user="ubuntu"
-ansible_ssh_private_key_file="~/.ssh/ork-replika.key"
-become=yes
-become_user=root
-
-[docker:vars]
+[prod_onco_ubu:vars]
 ansible_ssh_user="ubuntu"
 ansible_ssh_private_key_file="~/.ssh/ork-replika.key"
 become=yes
