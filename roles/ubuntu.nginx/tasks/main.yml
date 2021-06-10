@@ -1,0 +1,15 @@
+---
+
+- include_tasks: apt.yml
+  when: ansible_os_family == "Debian"
+    
+- name: Enable nginx (service)
+  service:
+    name: nginx
+    state: started
+    enabled: true
+
+- name: Restart Galaxy
+  service:
+    name: galaxy
+    state: restarted    

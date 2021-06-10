@@ -1,0 +1,7 @@
+repos:
+ - srepos: apt-transport-https
+ - srepos: ca-certificates
+ - srepos: curl
+ - srepos: gnupg-agent
+ - srepos: software-properties-common
+ - srepos: lsb-release

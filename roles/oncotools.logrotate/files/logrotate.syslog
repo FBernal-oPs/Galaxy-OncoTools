@@ -1,0 +1,24 @@
+/var/log/cron
+/var/log/maillog
+/var/log/secure
+/var/log/spooler
+{
+    missingok
+    sharedscripts
+    postrotate
+	/bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
+
+/var/log/messages {
+    rotate 30
+    daily
+    compress
+    compresscmd /usr/bin/gpg2
+    compressoptions --encrypt -r "Sys Admin" --homedir /root/.gnupg
+    compressext .gpg
+
+    postrotate
+      /bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}

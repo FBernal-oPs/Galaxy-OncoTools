@@ -1,0 +1,62 @@
+---
+- name: setup usegalaxy.no specific logrotates
+  block:
+
+    - name: "collect host information"
+      package_facts:
+        manager: "auto"
+
+    - name: install gpg package
+      apt:
+        name: gnupg2
+        state: present
+        update_cache: yes
+
+    - name: copy gpg keygen file
+      template:
+        src: ./roles/oncotools.logrotate/files/gpg-genkey.j2
+        dest: /root/gpg-genkey
+
+    - name: create gpg key
+      command: gpg2 --batch --gen-key /root/gpg-genkey
+
+    - name: delete gpg genkey file
+      file:
+        path: /root/gpg-genkey
+        state: absent
+
+    - name: "nginx logrotate"
+      template:
+        src: ./roles/oncotools.logrotate/files/logrotate.nginx
+        dest: /etc/logrotate.d/nginx
+        mode: 0644
+        owner: root
+        group: root
+        backup: yes
+      when: "'nginx' in ansible_facts.packages"
+
+
+    - name: check for galaxy installataion
+      stat:
+        path: "{{galaxy_root}}"
+      register: galaxy_installation
+
+    - name: "copy logrotate.conf"
+      template:
+        src: ./roles/oncotools.logrotate/files/logrotate.conf
+        dest: /etc/logrotate.conf
+        mode: 0644
+        owner: root
+        group: root
+        backup: yes
+      when: galaxy_installation.stat.isdir
+
+    - name: "messages logrotate"
+      template:
+        src: ./roles/oncotools.logrotate/files/logrotate.syslog
+        dest: /etc/logrotate.d/syslog
+        mode: 0644
+        owner: root
+        group: root
+        backup: yes
+      when: galaxy_installation.stat.isdir

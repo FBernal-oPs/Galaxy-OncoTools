@@ -1,0 +1,6 @@
+pre_uninstall:
+  - docker
+  - docker-engine
+  - docker.io
+  - containerd
+  - runc

@@ -1,0 +1,53 @@
+---
+- hosts: gal_onco_ubu
+  become: true
+        
+  handlers:
+    - name: Restart Galaxy
+      systemd:
+        name: galaxy
+        state: restarted
+
+  roles:
+   - oncotools.docker
+   - galaxyproject.postgresql
+   - role: natefoo.postgresql_objects
+     become: true
+     become_user: postgres   
+   - geerlingguy.pip
+   - galaxyproject.galaxy
+   - ubuntu.setup
+   - role: uchida.miniconda
+     become: true
+     become_user: "{{ galaxy_user.name }}"
+   - role: oncotools.logrotate
+     become: true
+     become_user: root
+   - usegalaxy_eu.galaxy_systemd
+  # - ubuntu.nginx
+   
+  tasks:
+    - name: Recursively change ownership of data folder
+      ansible.builtin.file:
+        path: /storage/galaxy
+        state: directory
+        recurse: yes
+        owner: galaxy
+        group: galaxy
+      changed_when: false
+
+    - name: Recursively change ownership of server folder
+      ansible.builtin.file:
+        path: /srv/galaxy
+        state: directory
+        recurse: yes
+        owner: galaxy
+        group: galaxy
+      changed_when: false
+
+    - name: Add Galaxy user to the docker group
+      ansible.builtin.user:
+        name: galaxy
+        groups: docker
+        append: yes
+      changed_when: false

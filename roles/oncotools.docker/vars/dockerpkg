@@ -1,0 +1,4 @@
+docker_packages:
+ - dpackage: docker-ce
+ - dpackage: docker-ce-cli
+ - dpackage: containerd.io

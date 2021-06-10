@@ -1,0 +1,21 @@
+---
+- name: Insert New block in tool_shed
+  lineinfile:
+    path: "{{ galaxy_server_dir }}/config/tool_sheds_conf.xml.sample"
+    backup: yes
+    insertbefore: '^</tool_sheds>'
+    line: '      <tool_shed name="NELS Tool Shed" url="https://galaxy-ntnu.bioinfo.no/toolshed_nels/"/>'
+
+- name: Copy Welcome Oncotools Page
+  copy:
+    src: ./roles/ubuntu.setup/files/welcome_onco.html
+    dest: /srv/galaxy/server/static/
+    
+- name: Copy shed_tool_conf xml with Get Data 
+  copy:
+    src: ./roles/ubuntu.setup/files/get_data.xml
+    dest: /srv/galaxy/server/config/tool_conf.xml
+  notify:
+    - restart galaxy
+
+    

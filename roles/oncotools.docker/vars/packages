@@ -1,0 +1,19 @@
+pre_uninstall:
+  prepackage: docker
+  prepackage: docker-engine
+  prepackage: docker.io
+  prepackage: containerd
+  prepackage: runc
+
+setup_repos:
+  srepos: apt-transport-https
+  srepos: ca-certificates
+  srepos: curl
+  srepos: gnupg-agent
+  srepos: software-properties-common
+  srepos: lsb-release
+
+docker_packages:
+  dpackage: docker-ce
+  dpackage: docker-ce-cli
+  dpackage: containerd.io

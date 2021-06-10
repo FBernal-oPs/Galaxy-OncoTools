@@ -1,0 +1,61 @@
+---
+
+- name: Install nginx (APT)
+  apt:
+    pkg: nginx
+  notify:
+    - restart nginx
+
+- name: Check if galaxy.conf exist
+  ansible.builtin.stat:
+    path: /etc/nginx/sites-available/galaxy.conf    
+  register: st
+
+- name: Report if galaxy conf exist
+  ansible.builtin.debug:
+    msg: "The file exists"
+  when: st.stat.exists
+
+- name: Report if galaxy conf missing
+  ansible.builtin.debug:
+    msg: "The file does not exists"
+  when: not st.stat.exists
+  
+- name: copy galaxy conf-
+  copy:
+    src: ./roles/ubuntu.nginx/files/galaxy.conf
+    dest: /etc/nginx/sites-available/
+  when:  not st.stat.exists
+
+- name: Check if galaxy.conf exist
+  ansible.builtin.stat:
+    path: /etc/nginx/sites-available/galaxy.conf    
+  register: sym
+
+- name: Check if galaxy conf has sym link
+  ansible.builtin.debug:
+    msg: "islnk isn't defined"
+  when: not sym.stat.islnk
+
+- name: Check if galaxy conf exist
+  ansible.builtin.debug:
+    msg: "The symlink already exist"
+  when: sym.stat.islnk
+
+- name: Delete the default conf in sites-enabled
+  ansible.builtin.file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Create Symbolic link (Brute force)
+  shell: ln -s /etc/nginx/sites-available/galaxy.conf /etc/nginx/sites-enabled/
+  when: not sym.stat.islnk
+  notify:
+    - reload nginx         
+  
+# - name: Create symbolic link 
+#   file:
+#     src: /etc/nginx/sites-available/galaxy.conf
+#     dest: /etc/nginx/sites-enabled
+#     state: link
+#     force: yes

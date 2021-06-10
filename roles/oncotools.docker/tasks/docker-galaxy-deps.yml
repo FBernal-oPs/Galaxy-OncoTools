@@ -1,0 +1,23 @@
+---
+- name: Setting up Galaxy dependencies
+  block:
+
+    - name: Update and Upgrade all apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install Dependencies
+      package:
+        name: "{{ item }}"
+      loop:
+        - python3-psycopg2
+        - python3-pip
+        - acl
+        - bzip2
+        - git
+        - make
+        - tar
+        - virtualenv
+        - gcc
+        - yaml-mode

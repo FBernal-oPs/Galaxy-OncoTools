@@ -1,0 +1,17 @@
+---
+  
+- name: Include variables for cleaning
+  include_vars: ./roles/oncotools.docker/vars/cleaning.yml
+
+- name: Include variables for repo
+  include_vars: ./roles/oncotools.docker/vars/repos.yml
+
+- name: Include variables for cleaning
+  include_vars: ./roles/oncotools.docker/vars/dockerpkg.yml
+
+- name: Install Docker in Ubuntu
+  include_tasks: docker-galaxy-deps.yml
+  
+- name: Install Docker in Ubuntu
+  include_tasks: docker-ubuntu.yml
+

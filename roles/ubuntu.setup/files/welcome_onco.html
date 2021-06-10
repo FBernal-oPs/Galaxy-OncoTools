@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link  rel="stylesheet" href="style/base.css"  type="text/css"
+        />
+    </head>
+    <body class="m-0">
+        <div class="py-4">
+            <div class="container">
+                <h1>Welcome to <strong>OncoTools</strong>!</h1>
+                <!--To          customize           this          page
+                edit <code>static/welcome.html</code>
+                <br>
+                <a                                     target="_blank"
+                href="https://docs.galaxyproject.org/en/latest/admin/config.html"
+                class="btn btn-primary">Configuring Galaxy »</a>
+                <a                                     target="_blank"
+                href="https://galaxyproject.org/admin/tools/add-tool-from-toolshed-tutorial/"
+                class="btn btn-primary">Installing Tools »</a>-->
+            </div>
+            <br>
+            <div class="container">
+                <p><strong>OncoTools</strong>  is  a  Galaxy  instance
+                that   will   host   dedicated  tools   intended   for
+                interpretation of data from high-throughput screens in
+                cancer biology.</p>
+			 <p>List of tools currently available:</p>
+			 <ul>
+				 <li><i><a href='https://github.com/sigven/oncoenrichr'
+				 target='_blank'>oncoEnrichR</a></i> -
+				 prioritization     and     functional
+				 interrogation  of  human genesets  in
+				 the  context of  cancer. The  tool is
+				 intended for exploratory analysis and
+				 prioritization  of a  gene list  from
+				 high-throughput     cancer    biology
+				 experiments.   The   tool  queries  a
+				 number of high-quality data resources
+				 in  order  to  assemble  useful  gene
+				 annotations   and   analyses  in   an
+				 interactive report. The  tool is also
+				 available as an R package (see GitHub
+				 page).
+			</ul>
+            </div>
+        </div>
+        <div class="container">
+		   <p><strong>OncoTools</strong>   is   supported   by
+		   the <a href='https://www.med.uio.no/cancell/english/'
+		   target='_blank'>Centre     for      Cancer     Cell
+		   Reprogramming            (CanCell)</a>           at
+		   the      <a      href='https://www.uio.no/english/'
+		   target='_blank'>University  of  Oslo</a>, with  key
+		   contributions
+		   by <a href='https://elixir.no/organization/elixir-uio'>Elixir
+		   (Oslo node)</a>. </p>
+		   <p>
+<img src="https://www.med.uio.no/cancell/english/images/can-cell-orig-gra-hvit-260.png"
+width = "20%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://www.med.uio.no/cancell/english/images/uio_seal_a_eng-260.png"
+width = "40%"><br><br>
+<img src="https://www.med.uio.no/cancell/english/images/ous_logo_rgb_eng.png"
+width = "40%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://elixir-europe.org/system/files/elixir_norway_white_background.png" width = "20%">
+<br>
+		   </p>
+            <p>
+                <a target="_blank" class="reference" href="http://galaxyproject.org/">
+                Galaxy</a>  is an  open platform  for supporting  data
+                intensive     research.     Galaxy    is     developed
+                by      <a      target="_blank"      class="reference"
+                href="https://galaxyproject.org/galaxy-team/">The
+                Galaxy Team</a> with the support of <a target="_blank"
+                class="reference"
+                href="https://github.com/galaxyproject/galaxy/blob/dev/CONTRIBUTORS.md">many
+                contributors</a>.
+            </p>
+            <footer>
+                The <a target="_blank" class="reference" href="http://galaxyproject.org/">Galaxy Project</a>
+                is supported in part by <a target="_blank" class="reference" href="http://www.genome.gov">NHGRI</a>,
+                <a target="_blank" class="reference" href="http://www.nsf.gov">NSF</a>,
+                <a          target="_blank"          class="reference"
+                href="http://www.huck.psu.edu">The Huck  Institutes of
+                the Life Sciences</a>,
+                <a          target="_blank"          class="reference"
+                href="http://www.ics.psu.edu">The     Institute    for
+                CyberScience at Penn State</a>, and <a target="_blank"
+                class="reference"     href="http://www.jhu.edu/">Johns
+                Hopkins University</a>.
+            </footer>
+        </div>
+    </body>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function (e) {
+	  window.cookieconsent.initialise({
+		"palette": {
+			"popup": {
+				"background": "#eee",
+				"text": "#000"
+			},
+		"button": {
+			"background": "#888",
+			"text": "#fff"
+		  }
+		},
+		"theme": "classic",
+		"position": "top",
+		"static": true,
+		"content": {
+			"message": "This site needs to store cookies on your device.",
+			"link": "Read about your privacy and our terms of service.",
+			"href": "/galaxy-terms",
+			"dismiss": "Accept"
+		}
+	  });
+  });
+    </script>
+</html>

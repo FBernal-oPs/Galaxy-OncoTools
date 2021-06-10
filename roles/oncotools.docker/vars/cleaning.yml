@@ -1,0 +1,6 @@
+cleaning:
+ - prepackage: docker
+ - prepackage: docker-engine
+ - prepackage: docker.io
+ - prepackage: containerd
+ - prepackage: runc
