@@ -6,15 +6,10 @@
     insertbefore: '^</tool_sheds>'
     line: '      <tool_shed name="NELS Tool Shed" url="https://galaxy-ntnu.bioinfo.no/toolshed_nels/"/>'
 
-# - name: Copy terms of service (TOS)
-#   copy:
-#     src: ./roles/ubuntu.setup/files/tos.tar
-#     dest: /srv/galaxy/server/static/
-
 - name: Untar Terms of Service (TOS)
   unarchive:
     src: ./roles/ubuntu.setup/files/tos.tar
-    dest: /srv/galaxy/server/static/
+    dest: /srv/
   changed_when: false
 
 - name: Copy Welcome Oncotools Page
