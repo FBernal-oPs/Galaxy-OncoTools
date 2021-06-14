@@ -1563,7 +1563,7 @@ galaxy_config:
     # command:   python -c 'from __future__ import print_function; import
     # time; print(time.time())' | md5sum | cut -f 1 -d ' '
     #id_secret: USING THE DEFAULT IS NOT SECURE!
-    id_secret: "{{ galaxy_id_secret }}
+    id_secret: "{{ galaxy_id_secret }}"
 
     # User authentication can be delegated to an upstream proxy server
     # (usually Apache).  The upstream proxy should set a REMOTE_USER
