@@ -47,17 +47,17 @@
     path: /etc/nginx/sites-enabled/default
     state: absent
 
-# - name: Create Symbolic link (Brute force)
-#   shell: ln -s /etc/nginx/sites-available/galaxy.conf /etc/nginx/sites-enabled/
-#   when: not sym.stat.islnk
-#   notify:
-#     - reload nginx         
-  
-- name: Create symbolic link 
-  file:
-    src: /etc/nginx/sites-available/galaxy.conf
-    dest: /etc/nginx/sites-enabled
-    state: link
+- name: Create Symbolic link (Brute force)
+  shell: ln -s /etc/nginx/sites-available/galaxy.conf /etc/nginx/sites-enabled/
+  when: not sym.stat.islnk
   notify:
-    - reload nginx
-  changed_when: false
+    - reload nginx         
+  
+# - name: Create symbolic link 
+#   file:
+#     src: /etc/nginx/sites-available/galaxy.conf
+#     dest: /etc/nginx/sites-enabled/
+#     state: link
+#   notify:
+#     - reload nginx
+#   changed_when: false

@@ -16,7 +16,7 @@
     name: certbot
     classic: yes
 
-- name: Symling certbot
+- name: Symlink certbot
   file:
     src: /snap/bin/certbot
     dest: /usr/bin/certbot

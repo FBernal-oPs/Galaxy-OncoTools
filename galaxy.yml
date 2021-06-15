@@ -24,7 +24,9 @@
      become: true
      become_user: root
    - usegalaxy_eu.galaxy_systemd
-   # - ubuntu.nginx
+   # - role: ubuntu.nginx
+   #   become: true
+   #   become_user: root
    # - role: oncotools.certbot
    #   become: true
    #   become_user: root

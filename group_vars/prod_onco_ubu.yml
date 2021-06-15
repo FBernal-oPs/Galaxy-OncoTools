@@ -57,7 +57,7 @@ galaxy_config:
 #-- UWSGI Configuration --------------------------------------------------------------------^    
   uwsgi:
     socket: 127.0.0.1:8080 # uncomment when SSL are in place
-#    http: 0.0.0.0:8080
+    # http: 0.0.0.0:8080
     buffer-size: 16384
     processes: 1
     threads: 4
