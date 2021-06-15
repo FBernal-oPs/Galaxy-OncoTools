@@ -1,0 +1,3 @@
+ansible.cfg
+inventory_docker
+group_vars/gal_onco_ubu-uncommented.yml
