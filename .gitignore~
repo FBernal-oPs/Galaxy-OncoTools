@@ -1,0 +1,3 @@
+ansible.cfg
+inventory_docker
+.gitignore
