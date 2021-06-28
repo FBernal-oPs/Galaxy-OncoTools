@@ -28,7 +28,10 @@ galaxy_commit_id: release_20.09
 galaxy_force_checkout: true
 miniconda_prefix: "{{ galaxy_tool_dependency_dir }}/_conda"
 miniconda_version: 4.7.12
-miniconda_manage_dependencies: false 
+miniconda_manage_dependencies: false
+#----------------------------------------------------------------------^
+id_secret: "{{ vault_id_secret }}"
+#----------------------------------------------------------------------
 
 galaxy_config:
   galaxy:
@@ -53,6 +56,9 @@ galaxy_config:
     tool_config_file: "{{ galaxy_server_dir }}/config/tool_conf.xml"    
     tool_destinations_config_file: "{{ galaxy_config_dir }}/tool_destinations.yml"
     dependency_resolvers_config_file: "{{ galaxy_config_dir }}/dependency_resolvers_conf.xml"    
+#-- SMNTP ----------------------------------------------------------------------^
+    smtp_server: smtp.uio.no
+    error_email_to: oslo-services@elixir.no
 
 #-- UWSGI Configuration --------------------------------------------------------------------^    
   uwsgi:

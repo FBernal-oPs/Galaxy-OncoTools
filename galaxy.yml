@@ -1,7 +1,9 @@
 ---
 - hosts: prod_onco_ubu
   become: true
-        
+  vars_files:
+    - group_vars/secret.yml
+
   handlers:
     - name: Restart Galaxy
       systemd:
