@@ -40,9 +40,9 @@ miniconda_manage_dependencies: false
 
 # galaxy.yml instance customization
 
-galaxy_brand: Oncotools
+galaxy_brand: OncoTools
 galaxy_admin_users: flbernal@usit.uio.no,sigven@uio.no
-galaxy_host: dev.oncotools.elixir.no
+galaxy_host: oncotools.elixir.no
 galaxy_welcome_url: /static/welcome_onco.html
 # Follow Galaxy Ansible tutorial to create a id_secret passphrase and store it in Ansible vault:
 # https://training.galaxyproject.org/training-material/topics/admin/tutorials/ansible-galaxy/tutorial.html#galaxy
