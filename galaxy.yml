@@ -3,6 +3,7 @@
   become: true
   vars_files:
     - group_vars/secret.yml
+    - group_vars/logrotate_pass.yml
 
   handlers:
     - name: Restart Galaxy

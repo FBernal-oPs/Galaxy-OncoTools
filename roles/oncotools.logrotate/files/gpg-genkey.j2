@@ -7,7 +7,7 @@ Name-Real: ubuntu
 Name-Comment: logfile encryption key
 Name-Email: flbernal@uio.no
 Expire-Date: 0
-Passphrase::OnCo:-:tO:-21
+Passphrase:"{{ logrotate_passphrase }}"
 %pubring logs.pub
 %secring logs.sec
 %commit
