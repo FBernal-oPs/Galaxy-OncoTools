@@ -13,6 +13,7 @@ postgresql_objects_databases:
 # PostgreSQL Backups
 postgresql_backup_dir: /storage/backups
 postgresql_backup_local_dir: "~postgres/backups"
+database_engine_option_server_side_cursors: true
 
 # Galaxy
 galaxy_create_user: true

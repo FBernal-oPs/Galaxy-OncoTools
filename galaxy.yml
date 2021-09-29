@@ -59,3 +59,8 @@
         groups: docker
         append: yes
       changed_when: false
+
+    - name: Insert correct hostname for SMTP
+      ansible.builtin.lineinfile:
+      path: /etc/hostname
+      line: 'oncotools.elixir.no'
